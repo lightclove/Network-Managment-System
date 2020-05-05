@@ -1,2 +1,2 @@
 # Network-Managment-System
-Custom network management system for the network infrastructure written in java from scratch.
+Custom network management system for the network infrastructure written in java by our team from scratch. Properties and some specified things was not included because of non-disclosure of trade secrets. It's only for the history. But it contains useful things such as a the model of the architecture such as the device inheritance and it's polimophic features was developed by my brother Paul Iliyushko. 
