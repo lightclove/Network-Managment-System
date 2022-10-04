@@ -131,22 +131,6 @@ public class MainFrame extends PFrame {
 //        }, 0, 1, TimeUnit.SECONDS);
     }
 
-//    public static void updateGraphics(PSwingCanvas[] canvases) {
-//
-//        for (int i = 0; i < canvases.length; i++) {
-//            for (int j = 0; j < canvases[i].getComponents().length; j++) {
-//                canvases[i].getComponent(j).revalidate();
-//                canvases[i].getComponent(j).repaint();
-//            }
-//        }
-//
-//    }
-//    public static void updateGraphics(PSwingCanvas canvases) {
-//        for (int i = 0; i < canvases.getComponents().length; i++) {
-//            canvases.getComponent(i).revalidate();
-//            canvases.getComponent(i).repaint();
-//        }
-//    }
 
     public void initialize() {
         try {
@@ -248,7 +232,7 @@ public class MainFrame extends PFrame {
         PSwingCanvas canvas = new PSwingCanvas();
         canvas.getLayer().addChild(new PSwing(new JLabel(canvasName)));
         canvas.setPanEventHandler(null);
-        return createLabel(canvas, "Схема сетевой инфраструктуры МДА БСОРИ", 10, 10, 30);
+        return createLabel(canvas, "Схема сетевой инфраструктуры", 10, 10, 30);
     }
 
     private PSwingCanvas createLabel(PSwingCanvas pSwingCanvas, String text, int x, int y, int fontSize) {
@@ -293,7 +277,7 @@ public class MainFrame extends PFrame {
             }
         }
 
-        // Отрисовка прямоугольника с меткой "БСКП", куда включены "КТД" и "БСК"
+        // Отрисовка прямоугольника с метками
         //nodeLayer.addChild(drawShape(new int[]{data.findDeviceById(51).getX() - 10, data.findDeviceById(51).getX() - 10, data.findDeviceById(51).getX() + 110, data.findDeviceById(51).getX() + 110}, new int[]{data.findDeviceById(51).getY() + 150, data.findDeviceById(51).getY() - 10, data.findDeviceById(51).getY() - 10, data.findDeviceById(51).getY() + 150}, "БСК"));
 
         // connect devices with lines (edges)
@@ -345,12 +329,10 @@ public class MainFrame extends PFrame {
                         case 100:
                             pSwingCanvasZoomable.getCamera().setViewScale(1.0);
                             pSwingCanvasZoomable.getCamera().setViewOffset(0, 0);
-                            //JOptionPane.showMessageDialog(null, "Удерживайте клавишу \"Ctrl\" и перетаскивайте рисунок мышью для навигации.");
                             break;
                         case 150:
                             pSwingCanvasZoomable.getCamera().setViewScale(1.5);
                             pSwingCanvasZoomable.getCamera().setViewOffset(0, 0);
-                            //JOptionPane.showMessageDialog(null, "Удерживайте клавишу \"Ctrl\" и перетаскивайте рисунок мышью для навигации.");
                             break;
                     }
                 }
@@ -420,112 +402,6 @@ public class MainFrame extends PFrame {
      */
     private PSwingCanvas createButtons(final PSwingCanvas pSwingCanvas) {
 
-        // Add the default zoom button
-//        JButton zoom100button = new JButton("Zoom = 100%");
-//        zoom100button.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                pSwingCanvas.getCamera().setViewScale(1.0);
-//                pSwingCanvas.getCamera().setViewOffset(0, 0);
-//
-//            }
-//        });
-//        PSwing pSwing = new PSwing(zoom100button);
-//        pSwing.translate(50, 50);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-//----------------------------------------------------------------------------------------------------------------
-//        JButton fullScreen = new JButton("Полный экран");
-//        fullScreen.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                if (selectedDevice != null) {
-//                    logger.log(Level.INFO, "Currently selected device: " + selectedDevice.getName());
-//                }
-//                for (IDevice device : data.getAllDevices()) {
-//                    if (device instanceof AccessPoint) {
-//                        continue;
-//                    }
-//                    logger.log(Level.INFO, device.getName() + " " + device.getDeviceImage().getFullBounds());
-//                }
-//                JOptionPane.showMessageDialog(null, "Switching to full screen");
-//                setFullScreenMode(true);
-//            }
-//        });
-//        PSwing pSwing = new PSwing(fullScreen);
-//        pSwing.translate(50, 50);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-//		JButton startRandomStateButton = new JButton("Start Activity");
-//		startRandomStateButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(final ActionEvent e) {
-//				createRandomNodeStateActivity();
-//			}
-//		});
-//		pSwing = new PSwing(startRandomStateButton);
-//		pSwing.translate(200, 600);
-//		getCanvas().getLayer().addChild(pSwing);		
-//		JButton stopRandomStateButton = new JButton("Stop Activity");
-//		stopRandomStateButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(final ActionEvent e) {
-//				stopActivity();
-//			}
-//		});
-//		pSwing = new PSwing(stopRandomStateButton);
-//		pSwing.translate(350, 600);
-//		getCanvas().getLayer().addChild(pSwing);
-//		JButton addBskpButton = new JButton("Add BSKP");
-//		addBskpButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(final ActionEvent e) {
-//				createNewBskp();
-//			}
-//		});
-//		pSwing = new PSwing(addBskpButton);
-//		pSwing.translate(530, 600);
-//		getCanvas().getLayer().addChild(pSwing);
-//		JButton testButton = new JButton("Test");
-//		testButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(final ActionEvent e) {
-//				test();
-//			}
-//		});
-//		pSwing = new PSwing(testButton);
-//		pSwing.translate(730, 600);
-//		getCanvas().getLayer().addChild(pSwing);
-
-//        JButton modeButton = new JButton("Режим");
-//        modeButton.setEnabled(false);
-//        modeButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                //test();
-//            }
-//        });
-//        PSwing pSwing = new PSwing(modeButton);
-//        pSwing.translate(40, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        PSwing pSwing;
-//        JButton diagnosticsButton = new JButton("Диагностика");
-//        diagnosticsButton.setEnabled(true);
-//        diagnosticsButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                try {
-//                    managedAPList();
-//                } catch (InterruptedException ex) {
-//                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        });
-//        pSwing = new PSwing(diagnosticsButton);
-//        pSwing.translate(140, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        JButton offEmissionButton = new JButton("Выключение радиоизлучения всех ББПИ");
-//        offEmissionButton.setEnabled(false);
-//        diagnosticsButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                //test();
-//            }
-//        });
-//        pSwing = new PSwing(offEmissionButton);
-//        pSwing.translate(280, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
         PSwing pSwing;
         JButton reInitProgramm = new JButton("<html><font size=7 color=red >Диагностика</font></html>");
         reInitProgramm.addActionListener(new ActionListener() {
@@ -540,232 +416,7 @@ public class MainFrame extends PFrame {
         pSwing = new PSwing(reInitProgramm);
         pSwing.translate(780, 70);
         pSwingCanvas.getLayer().addChild(pSwing);
-
-//
-//        JButton rebootSNMP = new JButton("<html><font size=5 color=red >Перезапуск SNMP</font></html>");
-//        rebootSNMP.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                // run firefox chreckbox activator
-//                loginToPage();
-//            }
-//
-//        });
-//        pSwing = new PSwing(rebootSNMP);
-//        pSwing.translate(250, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        JButton rebootEths = new JButton("<html><font size=5 color=red>Перезапуск сетевых служб ОС</font></html>");
-//        rebootEths.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//
-//                try {
-//                    String[] commands = {"fly-term", "-e", "/etc/init.d/networking", "restart"};
-//                    Runtime.getRuntime().exec(commands);
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                    JOptionPane.showMessageDialog(null, "Не удалось перезапустить сеть");
-//                }
-//            }
-//
-//        });
-//        pSwing = new PSwing(rebootEths);
-//        pSwing.translate(565, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        JButton wiButton = new JButton("<html><font size=5>Открыть web интерфейс КТД</font></html>");
-//        wiButton.setEnabled(true);
-//        wiButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-                //Actual for Windows:
-//                try {
-//                    AppRunner.webInterfaceOpener("http://10.168.2.50/login.php");
-//
-//                } catch (URISyntaxException ex) {
-//                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-                //For linux with firefox browser
-
-                //loginToPage();
-
-//                String[] commands = {"firefox", "http://10.168.2.50/login.php"};
-//                try {
-//                    Runtime.getRuntime().exec(commands);
-//                } catch (IOException e1) {
-//                    JOptionPane.showMessageDialog(null, "Не удалось открыть browser: " + e1.getLocalizedMessage());
-//                    e1.printStackTrace();
-//
-//                }
-//            }
-//        });
-//        pSwing = new PSwing(wiButton);
-//        pSwing.translate(250, 80);
-
-//        JButton editIP = new JButton("Редактировать ip адреса устройств");
-//        editIP.setEnabled(true);
-//        editIP.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                File file = Paths.get("name-ip.properties").toFile();
-//                if (file.exists())
-//                    System.out.println("File exists\n");
-//                else
-//                    System.out.println("File doesn`t exist\n");
-//                JOptionPane.showMessageDialog(null, "\tРедактировать ip адреса:"
-//                        + "\nВНИМАНИЕ!!! Редактируйте только правые части текста,"
-//                        + "после знака \"=\", а также "
-//                        + "указывайте только верные ip адреса устройств"
-//                        + ",иначе ВОЗМОЖНЫ СБОИ В РАБОТЕ ПРИЛОЖЕНИЯ!");
-//                        AppRunner.open("name-ip.properties");
-//            }
-//        });
-//        pSwing = new PSwing(editIP);
-//        pSwing.translate(733, 40);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-//        
-//        JButton editPlcmt = new JButton("Редактировать местоположение устройств");
-//        editPlcmt.setEnabled(true);
-//        editPlcmt.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                JOptionPane.showMessageDialog(null, "\tРедактировать местоположение устройств:"
-//                        + "\nВНИМАНИЕ!!! Редактируйте только правые части текста,"
-//                        + "после знака \"=\", а также "
-//                        + "указывайте только верные ip адреса устройств"
-//                        + ",иначе ВОЗМОЖНЫ СБОИ В РАБОТЕ ПРИЛОЖЕНИЯ!");
-//                AppRunner.open("placement.properties");
-//            }
-//        });
-//        pSwing = new PSwing(editPlcmt);
-//        pSwing.translate(733, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-//        
-//        JButton editZip = new JButton("Редактировать местоположение ЗИП устройств");
-//        editZip.setEnabled(true);
-//        editZip.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                JOptionPane.showMessageDialog(null, "\tРедактировать местоположение ЗИП устройств:"
-//                        + "\nВНИМАНИЕ!!! Редактируйте только правые части текста,"
-//                        + "после знака \"=\", а также "
-//                        + "указывайте только верные ip адреса устройств"
-//                        + ",иначе ВОЗМОЖНЫ СБОИ В РАБОТЕ ПРИЛОЖЕНИЯ!");
-//                AppRunner.open("zip.properties");
-//            }
-//        });
-//        pSwing = new PSwing(editZip);
-//        pSwing.translate(733, 120);
-
-
         pSwingCanvas.getLayer().addChild(pSwing);
-
-        //Application logging:
-//        JButton appLogbutton = new JButton("Открыть лог приложения");
-//        appLogbutton.setEnabled(true);
-//        appLogbutton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                //AppRunner.open("./BSORI_Net_UI_Interface_Application_Log.htm");
-//                String[] commands = {"firefox","BSORI_Net_UI_Interface_Application_Log_"+new SimpleDateFormat("dd.MM.yyyy").format(System.currentTimeMillis())+"_"+new SimpleDateFormat("HH:mm").format(System.currentTimeMillis())+".htm"};
-//                try {
-//                    Runtime.getRuntime().exec(commands);
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//            }
-//        });
-//        pSwing = new PSwing(appLogbutton);
-//        pSwing.translate(1115, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        JButton astButton = new JButton("Открыть Asterisk в терминале");
-//        astButton.setEnabled(true);
-//        astButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                try {
-//                    AppRunner.runShellScript("echo \"r\" | sudo -S | asterisk -rvvvcd");
-//
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//                try {
-//                    String[] commands = {"fly-term", "-e", "asterisk", "-rvvvcd"};
-//                    Runtime.getRuntime().exec(commands);
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//            }
-//        });
-//        pSwing = new PSwing(astButton);
-//        pSwing.translate(1345, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        JButton termButton = new JButton("Открыть терминал");
-//        termButton.setEnabled(true);
-//        termButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-////                try {
-////                    AppRunner.runShellScript("echo \"r\" | sudo -S | asterisk -rvvvcd");
-////
-////                } catch (IOException e1) {
-////                    e1.printStackTrace();
-////                }
-//                try {
-//                    Runtime.getRuntime().exec("fly-term");
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//            }
-//        });
-//        pSwing = new PSwing(termButton);
-//        pSwing.translate(1395, 120);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//        JButton manButton = new JButton("Открыть руководство"); 
-//        manButton.setEnabled(true);
-//        manButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                JOptionPane.showMessageDialog(null, "Открыть руководство:"
-//                        + "\nРуководство оператору МПТ\n"
-//                        + "Руководство по эксплуатации и инструкция по назначению МДА БСОРИ");
-//            }
-//        });
-//        pSwing = new PSwing(manButton);
-//        pSwing.translate(1610, 80);
-//        pSwingCanvas.getLayer().addChild(pSwing);
-
-//
-
-
-//        JButton ATSconfigs = new JButton("<html><font size=5>Открыть конфиг. файлы АТС</font></html>");
-//        ATSconfigs.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                String[] commands = {"fly-term", "-e", "sudo", "juffed", "/etc/asterisk/sip.conf", "/etc/asterisk/extensions.conf", "/etc/asterisk/meetme.conf"};
-//                try {
-//                    Runtime.getRuntime().exec(commands);
-//
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//            }
-//
-//        });
-//        pSwing = new PSwing(ATSconfigs);
-//        pSwing.translate(900, 80);
-
-
-//        JButton BSORIconfigs = new JButton("<html><font size=5>Открыть конфиг. файлы  программы мониторинга</font></html>");
-//        ATSconfigs.addActionListener(new ActionListener() {
-//            public void actionPerformed(final ActionEvent e) {
-//                String[] commands = {"fly-term", "-e", "sudo", "juffed", "~/MDA_BSORI_Monitoring/mpt.properties", "~/MDA_BSORI_Monitoring/name-ip.properties", "~/MDA_BSORI_Monitoring/placement.properties"};
-//                try {
-//                    Runtime.getRuntime().exec(commands);
-//
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//            }
-//
-//        });
-//        pSwing = new PSwing(BSORIconfigs);
-//        pSwing.translate(1100, 80);
-
-
         pSwingCanvas.getLayer().addChild(pSwing);
         //pSwing.repaint ();
         return pSwingCanvas;
@@ -774,16 +425,6 @@ public class MainFrame extends PFrame {
 
     private PSwingCanvas createStatTable(PSwingCanvas pSwingCanvas) throws IOException {
         statTable = new JTable();
-        // Code for sorting table cells
-//        statTable.setAutoCreateRowSorter(true);
-//        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(statTable.getModel());
-//        statTable.setRowSorter(sorter);
-//        setTableData();
-
-//        statTable.setPreferredScrollableViewportSize(statTable.getPreferredSize());
-//        statTable.setFillsViewportHeight(true);
-//        statTable.scrollRectToVisible(statTable.getCellRect(statTable.getRowCount()-1, 0, true));
-
         JScrollPane pane = new JScrollPane(statTable);
         pane.setPreferredSize(new Dimension(878, 740));
         statTable.setDoubleBuffered(false);
@@ -926,28 +567,12 @@ public class MainFrame extends PFrame {
                             } else if (deviceState == DeviceState.OFF) {
                                 setText("ОТКЛ.");
                                 setBackground(Color.RED);
-//                            } else if (deviceState == DeviceState.BROKEN) {
-//                                setText("НЕ РАБОТАЕТ");
-//                                setBackground(Color.RED);
+
                             }
                         }
                     }
                 }
         );
-
-
-        // set cell render for 'active time' column
-//        statTable.getColumnModel().getColumn(5).setCellRenderer(
-//                new DefaultTableCellRenderer() {
-//                    protected void setValue(Object value) {
-//                        setText(
-//                                (value == null)
-//                                ? ""
-//                                : String.valueOf(value)
-//                        );
-//                    }
-//                }
-//        );
 
         // set cell render for 'Расположение ЗИП' column
         statTable.getColumnModel().getColumn(5).setCellRenderer(
@@ -1356,25 +981,6 @@ public class MainFrame extends PFrame {
 
     }
 
-//    private void splashScreen(int timeActiveInMillis) throws MalformedURLException {
-//        JWindow window = new JWindow();
-//        window.getContentPane().add(
-//                new JLabel("", new ImageIcon("AME.jpg"), SwingConstants.CENTER));
-//        window.setBounds(500, 150, 300, 200);
-//        window.setVisible(true);
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        window.setVisible(false);
-//        JFrame frame = new JFrame();
-//        frame.add(new JLabel("Welcome"));
-//        frame.setVisible(true);
-//        frame.setSize(300, 100);
-//        window.dispose();
-//    }
-
     class CanvasInputHandler extends PBasicInputEventHandler {
 
         public void mouseReleased(final PInputEvent e) {
@@ -1496,10 +1102,6 @@ public class MainFrame extends PFrame {
         selectDeviceNode(pickedNode);
         int selectedRow = returnRowIndexForValue(selectedDevice.getId(), 0, statTable);
         statTable.setRowSelectionInterval(selectedRow, selectedRow);
-
-        // scroll the table to the selected device
-//        Rectangle rect = statTable.getCellRect(selectedRow, 1, true);
-//        statTable.scrollRectToVisible(rect);
     }
 
     private void selectPhoneNode(PPhoneImage newPhone) throws IOException {
@@ -1578,134 +1180,6 @@ public class MainFrame extends PFrame {
 
         public DeviceLeftClickMenu() {
 
-
-//           JMenuItem restartItem = new JMenuItem("Перезагрузить устройство");
-//            restartItem.setEnabled(false);
-//            restartItem.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//
-//                }
-//            });
-//            add(restartItem);
-//            
-//            JMenu  setEmission = new JMenu ("Установить мощность излучения ББПИ");
-//            setEmission.setEnabled(true);
-//            setEmission.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    
-//                }
-//            });
-//            
-//            JMenuItem setEmissionMin = new JMenuItem ("Min");
-//            setEmissionMin.addActionListener(new ActionListener() {
-//
-//                @Override
-//                public void actionPerformed(ActionEvent ae) {
-//                    JOptionPane.showMessageDialog(MainFrame.this,"Для того, чтобы установить минимальную мощность излучения ББПИ"
-//                            + "\nПерейдите в web интерфейс КТД в раздел"
-//                            + "\n\"Configuration\" - \"Wireless\" - \"Basic\" - \"RF Management\""
-//                            + "\nВыберите значение \"Default Tx Power\" = \"Minimum\"");
-//
-//                    // Код ответа операции set txPower
-//                    try {
-//                        managedAPList();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//            
-//            JMenuItem setEmissionEighth = new JMenuItem ("Eighth");
-//            setEmissionEighth.addActionListener(new ActionListener() {
-//
-//                @Override
-//                public void actionPerformed(ActionEvent ae) {
-//                    JOptionPane.showMessageDialog(MainFrame.this, "Для того, чтобы установить одну восьмую значения мощности излучения ББПИ"
-//                            + "\nПерейдите в web интерфейс КТД в раздел"
-//                            + "\n\"Configuration\" - \"Wireless\" - \"Basic\" - \"RF Management\""
-//                            + "\nВыберите значение \"Default Tx Power\" = \"Eighth\"");
-//                    try {
-//                        managedAPList();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//            
-//            JMenuItem setEmissionQuarter = new JMenuItem ("Quarter");
-//            setEmissionQuarter.addActionListener(new ActionListener() {
-//
-//                @Override
-//                public void actionPerformed(ActionEvent ae) {
-//                            JOptionPane.showMessageDialog(MainFrame.this, "Для того, чтобы установить значение четверти мощности излучения ББПИ"
-//                            + "\nПерейдите в web интерфейс КТД в раздел"
-//                            + "\n\"Configuration\" - \"Wireless\" - \"Basic\" - \"RF Management\""
-//                            + "\nВыберите значение \"Default Tx Power\" = \"Quarter\"");
-//                    try {
-//                        managedAPList();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//           
-//            JMenuItem setEmissionHalf = new JMenuItem ("Half");
-//            setEmissionHalf.addActionListener(new ActionListener() {
-//
-//                @Override
-//                public void actionPerformed(ActionEvent ae) {
-//                            JOptionPane.showMessageDialog(MainFrame.this, "Для того, чтобы установить значение половины мощности излучения ББПИ"
-//                            + "\nПерейдите в web интерфейс КТД в раздел"
-//                            + "\n\"Configuration\" - \"Wireless\" - \"Basic\" - \"RF Management\""
-//                            + "\nВыберите значение \"Default Tx Power\" = \"Half\"");
-//                    try {
-//                        managedAPList();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//            
-//            JMenuItem setEmissionMax = new JMenuItem ("Full");
-//            setEmissionMax.addActionListener(new ActionListener() {
-//
-//                @Override
-//                public void actionPerformed(ActionEvent ae) {
-//                            JOptionPane.showMessageDialog(MainFrame.this, "Для того, чтобы установить значение полную мощность излучения ББПИ"
-//                            + "\nПерейдите в web интерфейс КТД в раздел"
-//                            + "\n\"Configuration\" - \"Wireless\" - \"Basic\" - \"RF Management\""
-//                            + "\nВыберите значение \"Default Tx Power\" = \"Full\"");
-//                    try {
-//                        managedAPList();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//            
-//            setEmission.add(setEmissionMin);
-//            setEmission.add(setEmissionEighth);
-//            setEmission.add(setEmissionQuarter);
-//            setEmission.add(setEmissionHalf);
-//            setEmission.add(setEmissionMax);
-//
-//            if(selectedDevice instanceof AccessPoint){
-//                add(setEmission);
-//            }
-
-
-//            JMenuItem statisticsItem = new JMenuItem("Статистика");
-//            statisticsItem.setEnabled(false);
-//            statisticsItem.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    //showDeviceStatistics(device);
-//                }
-//            });
-//            add(statisticsItem);
-
             JMenuItem pingItem = new JMenuItem("Выполнить команду ping");
             pingItem.setEnabled(true);
             pingItem.addActionListener(new ActionListener() {
@@ -1727,28 +1201,6 @@ public class MainFrame extends PFrame {
                 }
             });
             add(pingItem);
-
-//            JMenuItem snmpItem = new JMenuItem("Выполнить тестовый snmp запрос");
-//            snmpItem.setEnabled(true);
-//            snmpItem.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//
-//                    try {
-//                        logger.log(Level.INFO, "BA DA BA DA BA DA ! ");
-//                        String[] commands = {"fly-term", "-e", "snmpwalk", "-v", "2c", "-c", "ISGKP", selectedDevice.getIpAddress() };
-//                        Runtime.getRuntime().exec(commands);
-//                    } catch (IOException e1) {
-//                        e1.printStackTrace();
-//                        logger.log(Level.INFO, "FOOOOOOOOOOOOOO!");
-//                    }
-//
-//                }
-//            });
-
-//            if(!(selectedDevice instanceof AccessPoint || selectedDevice instanceof PhoneServer)){
-//                add(snmpItem);
-//            }
 
             final JMenuItem wiItem = new JMenuItem("Открыть web интерфейс устройства");
             wiItem.setEnabled(true);
@@ -1779,20 +1231,6 @@ public class MainFrame extends PFrame {
             }
         }
     }
-
-
-//    private void createNewBskp() {
-//        IDevice bskp = data.createNewBskp();
-//        if (bskp == null) {
-//            return;
-//        }
-//        PDeviceImage deviceImage = new PDeviceImage(bskp);
-//        nodeLayer.addChild(deviceImage);
-//
-//        drawEdgesFromParentToChild(bskp.getParent(), bskp);
-//        setTableData();
-//        selectDevice(deviceImage);
-//    }
 
     private void createRandomNodeStateActivity() {
         changeRandomNodeStateActivity = new PActivity(-1, 1000) {
@@ -1881,49 +1319,6 @@ public class MainFrame extends PFrame {
         JMenuBar menuBar = new JMenuBar();
 
         setJMenuBar(menuBar);
-
-//        JMenu menuSettings = new JMenu("Настройки");
-//        menuBar.add(menuSettings);
-//        
-//        JMenu menuItem = new JMenu("Интервал перезапуска приложения");
-//        menuSettings.add(menuItem);
-//        
-//        JMenuItem menuItemTimeZero = new JMenuItem("0 мин. Постоянный режим работы");
-//        
-//        
-//        menuItem.add(menuItemTimeZero);
-//        
-//        JMenuItem menuItemTimeHalfHour = new JMenuItem("30 мин.");
-//        
-//        menuItem.add(menuItemTimeHalfHour);
-//        
-//        JMenuItem menuItemTimeOneHour = new JMenuItem("1 час");
-//        
-//        menuItem.add(menuItemTimeOneHour);
-//        
-//        JMenuItem menuItemTimeTwoHour = new JMenuItem("2 часа");
-//        
-//        menuItem.add(menuItemTimeTwoHour);
-//        
-//        JMenuItem menuItemTimeThreeHour = new JMenuItem("3 часа");
-//        
-//        menuItem.add(menuItemTimeThreeHour);
-//        
-//        JMenuItem menuItemTimeFourHour = new JMenuItem("4 часа");
-//        
-//        menuItem.add(menuItemTimeFourHour);
-//        
-//        JMenuItem menuItemTimeFiveHour = new JMenuItem("5 часов");
-//        
-//        menuItem.add(menuItemTimeFiveHour);
-//        
-//        JMenuItem menuItemTimeDay = new JMenuItem("24 часа");
-//        
-//        menuItem.add(menuItemTimeDay);
-//        
-//        JMenuItem menuItemTime2Days = new JMenuItem("48 часов");
-//        
-//        menuItem.add(menuItemTime2Days);
 
         JMenu menuAbout = new JMenu("Справка");
         menuBar.add(menuAbout);
