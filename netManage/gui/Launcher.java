@@ -27,26 +27,7 @@ public class Launcher {
 	 */
 	public static void main(String[] args) throws IOException {
             
-            //Application logging:
-//            try {
-//
-//                // Добавляем ещё файл "BSORI_Net_UI_Interface_Application_Log.htm".
-//                HtmlFormatter htmlformatter = new HtmlFormatter();
-//                FileHandler htmlfile = new FileHandler("BSORI_Net_UI_Interface_Application_Log_"+curStringDate+"_"+curStringTime+".htm");
-//                // Устанавливаем html форматирование с помощью класса HtmlFormatter.
-//                htmlfile.setFormatter(htmlformatter);
-//                logger.addHandler(htmlfile);
-//
-//            } catch (SecurityException e) {
-//                logger.log(Level.SEVERE,
-//                        "Не удалось создать файл лога из-за политики безопасности.",
-//                        e);
-//            } catch (IOException e) {
-//                logger.log(Level.SEVERE,
-//                        "Не удалось создать файл лога из-за ошибки ввода-вывода.",
-//                        e);
-//            }
-            
+         
             startApp();
 	}
         
@@ -65,14 +46,7 @@ public class Launcher {
         System.out.println(curDate + "************************ Application has been stopped !!!************************");
         //logger.log(Level.SEVERE,curDate + "************************ Application has been restarted !!!************************");
         System.exit(0);
-        // Приложение запускается из файла run.sh при загрузке ОС (автозагрузка), файлом run.sh, который запускает приложение(jar файл) в бесконечном цикле
-        // При вызове метода restartApp(), приложение закрывается, но скрипт запускает его по новой.
-        // содержимое файла run.sh
-     
-        //        #!/bin/bash
-        //        while true; do
-        //	  java -jar "./BSORI_NET_UI_Management.jar"
-        //        done;
+
     }
     
 }
