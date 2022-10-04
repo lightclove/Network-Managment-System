@@ -116,9 +116,6 @@ public class MainData {
                 DeviceState.OFF, null, p1.getProperty("A92"), new Date(), null, p2.getProperty("A92"));
         devicesMap.put(A92.getId(), A92);
 
-//                IDevice accPoint1 = new AccessPoint(1, "1", xPos, yPos, 
-//				DeviceState.ON, "ББПИ1 Serial Number", null, new Date(),  null, new Room(AccessPointRoomPlacement.A92));
-//		devicesMap.put(accPoint1.getId(), accPoint1);
         xPos += xStep;
         IDevice A93 = new AccessPoint(2, "A93", "2", xPos, yPos,
                 DeviceState.OFF, null, p1.getProperty("A93"), new Date(), null, p2.getProperty("A93"));
@@ -449,11 +446,7 @@ public class MainData {
         // KTD - A? access point controller
         xPos = 361; initialKTDxPos = xPos;
         yPos = 200; initialKTDyPos = yPos;
-        
-        
-        //IDevice KTD = new AccessPointController(51, "КТД", xPos, yPos, DeviceState.OFF, null, p1.getProperty("КТД"), new Date(), null, p2.getProperty("КТД"));// У,ираем с картинки КТД, что,ы не смущал нас своим миганием
-        //devicesMap.put(KTD.getId(), KTD);/ / У,ираем с картинки КТД, что,ы не смущал нас своим миганием
-
+                
         // BSK central switch
         xPos = 361;
         yPos = 265;
@@ -469,7 +462,6 @@ public class MainData {
         BSKChildren.add(A9);
         BSKChildren.add(A91);
         BSKChildren.add(A90);
-        //BSKChildren.add(KTD); // У,ираем с картинки КТД, что,ы не смущал нас своим миганием
 
         IDevice BSK = new CentralSwitch(49, "БСК", xPos, yPos, DeviceState.OFF, null, p1.getProperty("БСК"), new Date(), BSKChildren, p2.getProperty("БСК"));
         devicesMap.put(BSK.getId(), BSK);
